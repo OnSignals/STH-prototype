@@ -1,40 +1,29 @@
 /** @jsxImportSource @emotion/react */
 
-import { Title } from '@/components/Global/Title';
-import { Visual } from '../Visual/Visual';
 import { css } from '@emotion/react';
+import { SectionContextProvider } from '@/contexts/Section';
+
 import { Sidebar } from './Sidebar/Sidebar';
 import { Main } from './Main/Main';
-import { Header } from './Header/Header';
+import { Header as HeaderTheatre } from './Header/HeaderTheatre';
+import { Header as HeaderOpera } from './Header/HeaderOpera';
 
-function Home({ data }) {
+function Home({ section = 'schauspiel' }) {
     return (
-        <>
-            <Header />
-            <Main />
-            <Sidebar />
-        </>
+        <SectionContextProvider section={section}>
+            <div css={styles.wrapper} data-section={section}>
+                {section === 'schauspiel' ? <HeaderTheatre /> : <HeaderOpera />}
+                <Main />
+                <Sidebar />
+            </div>
+        </SectionContextProvider>
     );
 }
 
 export { Home };
 
 const styles = {
-    main: css`
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 10;
-    `,
-
-    aside: css`
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 10;
+    wrapper: css`
+        display: contents;
     `,
 };

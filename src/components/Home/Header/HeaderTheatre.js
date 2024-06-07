@@ -7,6 +7,7 @@ function Header() {
     return (
         <>
             <GlobalStyles styles={styles.global} />
+
             <header css={styles.wrapper}>
                 <h2 css={styles.title}>Schauspiel</h2>
             </header>
@@ -72,6 +73,10 @@ const styles = {
             );
 
             ${Actions.none}
+        }
+
+        [data-section='staatsoper'] & {
+            margin: 0 0 0 var(--Sidebar--width);
         }
     `,
 

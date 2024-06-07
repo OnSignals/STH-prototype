@@ -64,7 +64,7 @@ function Posts() {
                                     key={`Shape-${i}`}
                                     data-id={post.id}
                                 >
-                                    <Shape type={i === 0 ? 'c' : i === 1 ? 'a' : 'd'} />
+                                    <Shape type={i === 0 ? 'c' : i === 1 ? 'a' : 'b'} />
                                 </motion.div>
                             </motion.div>
                         )
@@ -145,7 +145,7 @@ const styles = {
         }
 
         &[data-id='2'] {
-            mix-blend-mode: normal;
+            mix-blend-mode: overlay;
 
             & > svg {
                 & [data-fill] {

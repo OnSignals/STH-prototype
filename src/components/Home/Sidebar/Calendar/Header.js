@@ -2,15 +2,19 @@
 
 import { css } from '@emotion/react';
 import { Button } from './StyleButton';
+import { useContext } from 'react';
+import { SectionContext } from '@/contexts/Section';
 
 function Header() {
+    const section = useContext(SectionContext);
+
     return (
         <header css={styles.wrapper}>
             <h1 css={styles.title}>Spielplan</h1>
             <div css={styles.dateSelect}>Juni 24</div>
 
             <div css={styles.filter}>
-                <a>Schauspiel</a>
+                <a>{section === 'schauspiel' ? 'Schauspiel' : 'Staatsoper'}</a>
             </div>
         </header>
     );

@@ -7,7 +7,7 @@ function Meta(props) {
     const url = process.env.URL || process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : '';
 
     const defaults = {
-        title: '...',
+        title: 'Die Staatstheater Hannover',
         description: '...',
         image: `${url}/images/preview.png`,
     };

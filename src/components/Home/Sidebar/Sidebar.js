@@ -44,5 +44,13 @@ const styles = {
         width: var(--Sidebar--width);
 
         border-left: 1px solid #000;
+
+        [data-section='staatsoper'] & {
+            right: auto;
+            left: 0;
+
+            border-left: none;
+            border-right: 1px solid #000;
+        }
     `,
 };

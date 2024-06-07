@@ -44,5 +44,9 @@ const styles = {
 
         background-image: linear-gradient(180deg, #fff 0%, #666 100%);
         /* border: 1px solid red; */
+
+        [data-section='staatsoper'] & {
+            margin: 0 0 0 var(--Sidebar--width);
+        }
     `,
 };
