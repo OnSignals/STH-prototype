@@ -36,7 +36,9 @@ function Info({ info }) {
     return !info ? null : (
         <motion.div initial={VARIANTS.initial} animate={VARIANTS.animate} exit={VARIANTS.exit} css={styles.wrapper}>
             {info.map((line, i) => (
-                <p css={styles.line}>{line}</p>
+                <p css={styles.line} key={i}>
+                    {line}
+                </p>
             ))}
         </motion.div>
     );

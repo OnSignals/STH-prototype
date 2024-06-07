@@ -11,7 +11,7 @@ function Posts() {
             <div css={styles.scroller}>
                 <section css={styles.items}>
                     {calendar.map((event, i) => (
-                        <Post post={event} />
+                        <Post post={event} key={i} />
                     ))}
                 </section>
             </div>
