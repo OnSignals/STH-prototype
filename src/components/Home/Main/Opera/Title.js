@@ -58,6 +58,8 @@ const styles = {
         }
 
         [data-id='1'] & {
+            position: relative;
+            top: -0.05em;
             width: 5em;
             font-size: 18vw;
             margin: 0 auto;
@@ -74,7 +76,6 @@ const styles = {
             font-weight: normal;
             font-variation-settings: 'wght' 300, 'slnt' 0, 'CNTR' 100;
             letter-spacing: -0.04em;
-            text-indent: 1em;
         }
     `,
 };

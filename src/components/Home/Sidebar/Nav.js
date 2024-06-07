@@ -83,7 +83,7 @@ const styles = {
             font-size: var(--type--scale---1);
             line-height: 0.8;
             font-weight: normal;
-            font-variation-settings: 'wght' 500, 'ital' 0, 'opsz' 20;
+            font-variation-settings: 'wght' 500, 'ital' 0, 'opsz' 15;
             text-align: center;
             letter-spacing: -0.04em;
 

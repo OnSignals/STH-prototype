@@ -11,6 +11,7 @@ import { Title } from './Title';
 import { Dates } from '../Dates';
 import { Info } from './Info';
 import { Tickets } from '../Tickets';
+import { Shape } from '../Theatre/Shapes';
 
 const VARIANTS = {
     wrapper: {
@@ -53,6 +54,18 @@ function Posts() {
                                     <Dates dates={post.dates} />
                                     <Tickets hasTickets={post?.hasTickets || true} />
                                 </motion.article>
+
+                                <motion.div
+                                    initial={VARIANTS.shape.initial}
+                                    animate={VARIANTS.shape.animate}
+                                    exit={VARIANTS.shape.exit}
+                                    transition={{ type: 'tween', duration: 0.4 }}
+                                    css={styles.shape}
+                                    key={`Shape-${i}`}
+                                    data-id={post.id}
+                                >
+                                    <Shape type={i === 0 ? 'b' : i === 1 ? 'c' : 'a'} />
+                                </motion.div>
                             </motion.div>
                         )
                 )}
@@ -112,6 +125,16 @@ const styles = {
         }
 
         &[data-id='0'] {
+            mix-blend-mode: overlay;
+
+            & > svg {
+                & [data-fill] {
+                    fill: #8debeb;
+                }
+            }
+        }
+
+        &[data-id='1'] {
             mix-blend-mode: exclusion;
 
             & > svg {
@@ -121,22 +144,12 @@ const styles = {
             }
         }
 
-        &[data-id='1'] {
-            mix-blend-mode: hard-light;
-
-            & > svg {
-                & [data-fill] {
-                    fill: #ff640a;
-                }
-            }
-        }
-
         &[data-id='2'] {
             mix-blend-mode: overlay;
 
             & > svg {
                 & [data-fill] {
-                    fill: #f72a57;
+                    fill: #cebbf0;
                 }
             }
         }
