@@ -31,7 +31,7 @@ const Video = ({ index = 0, currentIndex = 0 }) => {
     // });
 
     const [scale, _] = useState(1.5);
-    const [displacementScale, __] = useState(-1);
+    const [displacementScale, __] = useState(-0.7);
 
     const scrollData = useScroll();
     const { pointer } = useThree();

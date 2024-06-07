@@ -5,9 +5,9 @@ const postsTheatre = [
         dates: ['31.6.', '7.7. + 8.7', '18.7.', '24.7.'],
         hasTickets: true,
         video: {
-            color: 'https://player.vimeo.com/progressive_redirect/playback/950845767/rendition/720p/file.mp4?loc=external&log_user=0&signature=3f3fb8dd1a961a4d8fc2b403770613cfa961e6f27306f2e135137981b13f15b9',
-            depth: 'https://player.vimeo.com/progressive_redirect/playback/950845103/rendition/720p/file.mp4?loc=external&log_user=0&signature=2b77fa5fd22c73aea0127aecfbbf27b70e7631d9d76e0e9f4172ccedb690edd2',
-            ratio: 720 / 1280,
+            color: 'https://player.vimeo.com/progressive_redirect/playback/950847051/rendition/720p/file.mp4?loc=external&log_user=0&signature=b130a4b330a4bad1376b0b4e7080e3f0af603346ca486dfebac2d2040e664904',
+            depth: 'https://player.vimeo.com/progressive_redirect/playback/950845366/rendition/720p/file.mp4?loc=external&log_user=0&signature=08a36bf6c78803b215847130170a28a94b081ca372133037eeaa06f727a7c0eb',
+            ratio: 1280 / 720,
         },
     },
 
@@ -64,7 +64,7 @@ const postsOpera = [
         title: 'Le Nozze di Figarro',
         dates: ['31.6.', '7.7. + 8.7', '18.7.', '24.7.'],
         hasTickets: true,
-        video: 'https://player.vimeo.com/progressive_redirect/playback/954883853/rendition/1080p/file.mp4?loc=external&log_user=0&signature=664bc1fbb8753ed15c4f3a98d003fba736fb7f3f4ed1da2f08827f890a0c5b21',
+        video: 'https://player.vimeo.com/progressive_redirect/playback/954972476/rendition/1080p/file.mp4?loc=external&log_user=0&signature=b5de7a9eac88362953c37d3d019409de33ff9f4b0110bcac825ffcb17ac780a6',
     },
 ];
 
