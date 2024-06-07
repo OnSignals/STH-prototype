@@ -6,14 +6,14 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { DoubleSide } from 'three';
 import { useShallow } from 'zustand/react/shallow';
 import { useControls } from 'leva';
-import { posts } from '@/data/posts';
+import { postsTheatre } from '@/data/posts';
 import { CustomMaterial } from './CustomMaterial';
 import { clamp, easing, lerp } from '@superstructure.net/utils';
 
 extend({ CustomMaterial });
 
 const Video = ({ index = 0, currentIndex = 0 }) => {
-    console.log('currentIndex', currentIndex, posts.length);
+    console.log('currentIndex', currentIndex, postsTheatre.length);
 
     // const { scale, displacementScale } = useControls({
     //     scale: {
@@ -36,9 +36,9 @@ const Video = ({ index = 0, currentIndex = 0 }) => {
     const scrollData = useScroll();
     const { pointer } = useThree();
 
-    const videoUrlColor = useMemo(() => posts[index].video.color, [index]);
-    const videoUrlDepth = useMemo(() => posts[index].video.depth, [index]);
-    const videoRatio = useMemo(() => posts[index].video.ratio, [index]);
+    const videoUrlColor = useMemo(() => postsTheatre[index].video.color, [index]);
+    const videoUrlDepth = useMemo(() => postsTheatre[index].video.depth, [index]);
+    const videoRatio = useMemo(() => postsTheatre[index].video.ratio, [index]);
 
     const positionRef = useRef();
     const rotationRef = useRef();
@@ -61,7 +61,7 @@ const Video = ({ index = 0, currentIndex = 0 }) => {
             meshRef.current.material.uniforms.displacementScale.value = displacementScale;
         }
 
-        const distance = scrollData.offset * (posts.length - 1) - index;
+        const distance = scrollData.offset * (postsTheatre.length - 1) - index;
 
         if (index === 1 && Math.abs(distance <= 1)) {
         }
@@ -72,9 +72,9 @@ const Video = ({ index = 0, currentIndex = 0 }) => {
         }
 
         if (pointerRef.current) {
-            pointerRef.current.rotation.y = lerp(pointerRef.current.rotation.y, pointer.x * 0.4, 0.02);
+            pointerRef.current.rotation.y = lerp(pointerRef.current.rotation.y, pointer.x * 0.6, 0.02);
 
-            pointerRef.current.rotation.x = lerp(pointerRef.current.rotation.x, pointer.y * -0.4, 0.02);
+            pointerRef.current.rotation.x = lerp(pointerRef.current.rotation.x, pointer.y * -0.6, 0.02);
         }
     });
 

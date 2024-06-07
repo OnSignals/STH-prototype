@@ -79,6 +79,11 @@ const styles = {
             drop-shadow(var(--border-width) var(--border-width) 0 black)
             drop-shadow(calc(-1 * var(--border-width)) var(--border-width) 0 black)
             drop-shadow(var(--border-width) calc(-1 * var(--border-width)) 0 black);
+
+        [data-section='staatsoper'] & {
+            font-family: var(--type--family--ultra);
+            font-variation-settings: 'wght' 300, 'slnt' 0, 'CNTR' 100;
+        }
     `,
 
     item: css`

@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import { Actions } from '@/styles/mixins/Interaction';
 import { Button } from './StyleButton';
 
-function Post({ post }) {
+function Post({ post, title }) {
     return (
         <article css={styles.wrapper}>
             <div css={styles.date}>
@@ -13,7 +13,7 @@ function Post({ post }) {
             </div>
 
             <div css={styles.info}>
-                <h4 css={styles.title}>{post.title}</h4>
+                <h4 css={styles.title}>{title || post.title}</h4>
 
                 <div css={styles.meta}>
                     <p css={styles.time}>{post.time}</p>

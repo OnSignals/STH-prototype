@@ -1,10 +1,14 @@
 /** @jsxImportSource @emotion/react */
 
 import { css, Global as GlobalStyles } from '@emotion/react';
+import { useContext } from 'react';
 import { create } from 'zustand';
+import { SectionContext } from '@/contexts/Section';
 
 import { Visual } from '../../Visual/Visual';
-import { Posts } from './Posts';
+import { Posts as PostsTheatre } from './Theatre/Posts';
+import { Posts as PostsOpera } from './Opera/Posts';
+import { Teasers } from './Opera/Teasers';
 
 const useScrollIndex = create((set) => ({
     currentIndex: 0,
@@ -13,12 +17,23 @@ const useScrollIndex = create((set) => ({
 }));
 
 function Main() {
+    const section = useContext(SectionContext);
+
     return (
         <>
             <GlobalStyles styles={styles.global} />
             <main css={styles.wrapper}>
-                <Visual />
-                <Posts />
+                {section === 'schauspiel' ? (
+                    <>
+                        <Visual />
+                        <PostsTheatre />
+                    </>
+                ) : (
+                    <>
+                        <Teasers />
+                        <PostsOpera />
+                    </>
+                )}
             </main>
         </>
     );

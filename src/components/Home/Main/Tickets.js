@@ -73,6 +73,11 @@ const styles = {
 
         cursor: pointer;
 
+        [data-section='staatsoper'] & {
+            font-family: var(--type--family--ultra);
+            font-variation-settings: 'wght' 300, 'slnt' 0, 'CNTR' 100;
+        }
+
         @media ${MediaQueries.hover} {
             &:hover {
                 color: #fff;

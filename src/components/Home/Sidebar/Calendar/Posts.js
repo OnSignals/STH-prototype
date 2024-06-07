@@ -4,14 +4,21 @@ import { css } from '@emotion/react';
 import { calendar } from '@/data/calendar';
 import { Actions } from '@/styles/mixins/Interaction';
 import { Post } from './Post';
+import { useContext } from 'react';
+import { SectionContext } from '@/contexts/Section';
+import { postsOpera, postsTheatre } from '@/data/posts';
 
 function Posts() {
+    const section = useContext(SectionContext);
+
+    const posts = section === 'schauspiel' ? postsTheatre : postsOpera;
+
     return (
         <div css={styles.wrapper}>
             <div css={styles.scroller}>
                 <section css={styles.items}>
                     {calendar.map((event, i) => (
-                        <Post post={event} key={i} />
+                        <Post post={event} title={posts[event?.postId]?.title} key={i} />
                     ))}
                 </section>
             </div>

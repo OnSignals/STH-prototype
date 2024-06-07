@@ -2,15 +2,15 @@
 
 import { css, Global as GlobalStyles } from '@emotion/react';
 
-import { posts } from '@/data/posts';
-import { useScrollIndex } from './Main';
+import { postsTheatre } from '@/data/posts';
+import { useScrollIndex } from '../Main';
 import { useShallow } from 'zustand/react/shallow';
 import { Actions } from '@/styles/mixins/Interaction';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Title } from './Title';
-import { Dates } from './Dates';
+import { Dates } from '../Dates';
 import { Info } from './Info';
-import { Tickets } from './Tickets';
+import { Tickets } from '../Tickets';
 import { Shape } from './Shapes';
 
 const VARIANTS = {
@@ -35,7 +35,7 @@ function Posts() {
             <GlobalStyles styles={styles.global} />
 
             <AnimatePresence mode="wait">
-                {posts.map(
+                {postsTheatre.map(
                     (post, i) =>
                         currentIndex === i && (
                             <motion.div

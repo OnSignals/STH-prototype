@@ -4,6 +4,7 @@ import { css } from '@emotion/react';
 import { Button } from './StyleButton';
 import { useContext } from 'react';
 import { SectionContext } from '@/contexts/Section';
+import { MediaQueries } from '@/styles/mixins/MediaQueries';
 
 function Header() {
     const section = useContext(SectionContext);
@@ -138,6 +139,14 @@ const styles = {
             background-position: 100% center;
             background-size: contain;
             background-image: url(/images/icon--16--close.svg);
+        }
+
+        @media ${MediaQueries.hover} {
+            & > a {
+                &:hover {
+                    background-image: url(/images/icon--16--white--close.svg);
+                }
+            }
         }
     `,
 };

@@ -2,6 +2,7 @@
 
 import { css } from '@emotion/react';
 import { Button } from './StyleButton';
+import { MediaQueries } from '@/styles/mixins/MediaQueries';
 
 function Footer() {
     return (

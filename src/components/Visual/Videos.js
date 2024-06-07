@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 
 import { useFrame } from '@react-three/fiber';
 
-import { posts } from '@/data/posts';
+import { postsTheatre } from '@/data/posts';
 import { Video } from './Video';
 import { useScroll } from '@react-three/drei';
 import { clamp } from '@superstructure.net/utils';
@@ -25,14 +25,18 @@ function Videos() {
     const currentIndexRef = useRef(0);
 
     useFrame(() => {
-        currentIndexRef.current = clamp(Math.floor(scrollData.offset * posts.length), 0, posts.length - 1);
+        currentIndexRef.current = clamp(
+            Math.floor(scrollData.offset * postsTheatre.length),
+            0,
+            postsTheatre.length - 1
+        );
 
         if (currentIndexRef.current !== currentIndex) setCurrentIndex(currentIndexRef.current);
     });
 
     useEffect(() => {}, [currentIndex]);
 
-    return Array(posts.length)
+    return Array(postsTheatre.length)
         .fill(0)
         .map((_, i) =>
             Math.abs(i - currentIndex) > 1 ? null : <Video index={i} currentIndex={currentIndex} key={i} />
