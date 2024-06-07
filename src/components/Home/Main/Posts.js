@@ -38,16 +38,16 @@ function Posts() {
                 {posts.map(
                     (post, i) =>
                         currentIndex === i && (
-                            <>
-                                <motion.article
-                                    initial={VARIANTS.wrapper.initial}
-                                    animate={VARIANTS.wrapper.animate}
-                                    exit={VARIANTS.wrapper.exit}
-                                    transition={{ type: 'tween', duration: 1 }}
-                                    css={styles.post}
-                                    key={`Post-${i}`}
-                                    data-id={post.id}
-                                >
+                            <motion.div
+                                initial={VARIANTS.wrapper.initial}
+                                animate={VARIANTS.wrapper.animate}
+                                exit={VARIANTS.wrapper.exit}
+                                transition={{ type: 'tween', duration: 1 }}
+                                css={styles.wrapper}
+                                key={`Post-${i}`}
+                                data-id={post.id}
+                            >
+                                <motion.article css={styles.post}>
                                     <Title title={post.title} />
                                     <Info info={post?.info} />
 
@@ -59,14 +59,14 @@ function Posts() {
                                     initial={VARIANTS.shape.initial}
                                     animate={VARIANTS.shape.animate}
                                     exit={VARIANTS.shape.exit}
-                                    transition={{ type: 'tween', duration: 1 }}
+                                    transition={{ type: 'tween', duration: 0.4 }}
                                     css={styles.shape}
                                     key={`Shape-${i}`}
                                     data-id={post.id}
                                 >
                                     <Shape type={i === 0 ? 'c' : i === 1 ? 'a' : 'd'} />
                                 </motion.div>
-                            </>
+                            </motion.div>
                         )
                 )}
             </AnimatePresence>
@@ -83,14 +83,7 @@ const styles = {
     `,
 
     wrapper: css`
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 10;
-
-        ${Actions.none}/* mix-blend-mode: difference; */
+        display: contents;
     `,
 
     post: css`
