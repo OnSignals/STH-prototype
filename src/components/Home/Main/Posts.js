@@ -11,6 +11,7 @@ import { Title } from './Title';
 import { Dates } from './Dates';
 import { Info } from './Info';
 import { Tickets } from './Tickets';
+import { Shape } from './Shapes';
 
 const VARIANTS = {
     wrapper: {
@@ -25,13 +26,13 @@ function Posts() {
 
     return (
         <>
-            <div css={styles.wrapper}>
-                <GlobalStyles styles={styles.global} />
+            <GlobalStyles styles={styles.global} />
 
-                <AnimatePresence mode="wait">
-                    {posts.map(
-                        (post, i) =>
-                            currentIndex === i && (
+            <AnimatePresence mode="wait">
+                {posts.map(
+                    (post, i) =>
+                        currentIndex === i && (
+                            <>
                                 <motion.article
                                     initial={VARIANTS.wrapper.initial}
                                     animate={VARIANTS.wrapper.animate}
@@ -47,10 +48,14 @@ function Posts() {
                                     <Dates dates={post.dates} />
                                     <Tickets hasTickets={post?.hasTickets || true} />
                                 </motion.article>
-                            )
-                    )}
-                </AnimatePresence>
-            </div>
+
+                                <div css={styles.shape} data-id={post.id}>
+                                    <Shape type={i === 0 ? 'c' : i === 1 ? 'a' : 'd'} />
+                                </div>
+                            </>
+                        )
+                )}
+            </AnimatePresence>
         </>
     );
 }
@@ -85,5 +90,61 @@ const styles = {
         justify-content: center;
         align-items: center;
         margin: 0;
+
+        ${Actions.none}
+    `,
+
+    shape: css`
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 100;
+
+        width: 100%;
+        height: 100%;
+
+        ${Actions.none}
+
+        & > svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            object-fit: cover;
+
+            & [data-fill] {
+                fill: #fff;
+            }
+        }
+
+        &[data-id='0'] {
+            mix-blend-mode: exclusion;
+
+            & > svg {
+                & [data-fill] {
+                    fill: #fff;
+                }
+            }
+        }
+
+        &[data-id='1'] {
+            mix-blend-mode: hard-light;
+
+            & > svg {
+                & [data-fill] {
+                    fill: #ff640a;
+                }
+            }
+        }
+
+        &[data-id='2'] {
+            mix-blend-mode: normal;
+
+            & > svg {
+                & [data-fill] {
+                    fill: #f72a57;
+                }
+            }
+        }
     `,
 };
