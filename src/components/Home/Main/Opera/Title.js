@@ -59,13 +59,13 @@ const styles = {
 
         [data-id='1'] & {
             width: 5em;
+            font-size: 18vw;
             margin: 0 auto;
-            font-size: 11vw;
-            line-height: 0.8;
+            line-height: 0.75;
             font-weight: normal;
-            font-variation-settings: 'wght' 300, 'slnt' 0, 'CNTR' 100;
+            font-variation-settings: 'wght' 200, 'slnt' 0, 'CNTR' 100;
 
-            letter-spacing: -0.04em;
+            letter-spacing: -0.06em;
         }
 
         [data-id='2'] & {

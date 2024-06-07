@@ -53,7 +53,7 @@ const postsOpera = [
     },
     {
         id: 1,
-        title: 'Die Glücklichen und die Traurigen',
+        title: 'Romeo und Julia',
         dates: ['31.6.', '7.7. + 8.7', '18.7.', '24.7.'],
         hasTickets: true,
         video: 'https://player.vimeo.com/progressive_redirect/playback/954884498/rendition/1080p/file.mp4?loc=external&log_user=0&signature=6539d0267ad797dafa25b1d884dc672a6b719be951c6ea1157f09182f80b9b11',
@@ -64,7 +64,7 @@ const postsOpera = [
         title: 'Le Nozze di Figarro',
         dates: ['31.6.', '7.7. + 8.7', '18.7.', '24.7.'],
         hasTickets: true,
-        video: null,
+        video: 'https://player.vimeo.com/progressive_redirect/playback/954883853/rendition/1080p/file.mp4?loc=external&log_user=0&signature=664bc1fbb8753ed15c4f3a98d003fba736fb7f3f4ed1da2f08827f890a0c5b21',
     },
 ];
 
