@@ -2,100 +2,74 @@
 
 import { css, Global as GlobalStyles } from '@emotion/react';
 
-import { posts } from '@/data/posts';
-import { useScrollIndex } from './Main';
-import { useShallow } from 'zustand/react/shallow';
-import { Actions } from '@/styles/mixins/Interaction';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const VARIANTS = {
-    wrapper: {
-        initial: {},
-        animate: {},
-        exit: {},
+    initial: {
+        opacity: 0,
+        scaleY: 0.5,
+        scaleX: 2,
+    },
+    animate: {
+        opacity: 1,
+        scaleY: 1,
+        scaleX: 1,
+        transition: {
+            type: 'tween',
+            ease: [0.16, 1, 0.3, 1],
+            duration: 1,
+        },
+    },
+    exit: {
+        opacity: 0,
+        scaleY: 0.5,
+        scaleX: 2,
+        transition: {
+            type: 'tween',
+            ease: 'linear',
+            duration: 0.15,
+        },
     },
 };
 
-function Info() {
-    const { currentIndex } = useScrollIndex(useShallow((state) => ({ currentIndex: state.currentIndex })));
-
-    return (
-        <>
-            <div css={styles.wrapper}>
-                <GlobalStyles styles={styles.global} />
-
-                <AnimatePresence mode="wait">
-                    {posts.map(
-                        (post, i) =>
-                            currentIndex === i && (
-                                <motion.article
-                                    initial={VARIANTS.wrapper.initial}
-                                    animate={VARIANTS.wrapper.animate}
-                                    exit={VARIANTS.wrapper.exit}
-                                    transition={{ type: 'tween', duration: 1 }}
-                                    css={styles.post}
-                                    key={`Post-${i}`}
-                                >
-                                    <Title title={post.title} />
-                                </motion.article>
-                            )
-                    )}
-                </AnimatePresence>
-            </div>
-        </>
-    );
-}
-
-function Title({ title }) {
-    return (
-        <motion.h2
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -100 }}
-            css={styles.title}
-        >
-            {title}
-        </motion.h2>
+function Info({ info }) {
+    return !info ? null : (
+        <motion.div initial={VARIANTS.initial} animate={VARIANTS.animate} exit={VARIANTS.exit} css={styles.wrapper}>
+            {info.map((line, i) => (
+                <p css={styles.line}>{line}</p>
+            ))}
+        </motion.div>
     );
 }
 
 export { Info };
 
 const styles = {
-    global: css`
-        :root {
-        }
-    `,
-
     wrapper: css`
         position: absolute;
         left: 0;
         right: 0;
-        top: 0;
-        bottom: 0;
-        z-index: 10;
-
-        ${Actions.none}
-    `,
-
-    post: css`
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
         bottom: 0;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
+        margin: 1vw;
+
+        text-align: center;
+        text-shadow: 0 0 5vw rgba(0, 0, 0, 0.2);
     `,
 
-    title: css`
+    line: css`
         margin: 0;
 
-        font-size: 10vw;
-        font-weight: normal;
-        color: #fff;
+        [data-id='2'] & {
+            font-size: 5vw;
+            line-height: 0.75;
+            font-weight: normal;
+            font-variation-settings: 'wght' 1000, 'ital' 0, 'opsz' 60;
+            letter-spacing: -0em;
+            color: #f72a57;
+
+            &:nth-child(1) {
+            }
+        }
     `,
 };

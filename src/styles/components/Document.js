@@ -21,6 +21,8 @@ const Document = css`
 
     body {
         background-color: var(--color--white);
+
+        user-select: none;
     }
 
     ::selection {

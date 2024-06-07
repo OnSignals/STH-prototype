@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 
 import { Canvas, useFrame } from '@react-three/fiber';
 
-import { videos } from '@/data/video';
+import { posts } from '@/data/posts';
 import { ScrollControls, useScroll } from '@react-three/drei';
 import { Videos } from './Videos';
 
@@ -13,7 +13,7 @@ function Visual({}) {
     return (
         <div css={styles.wrapper}>
             <Canvas>
-                <ScrollControls pages={videos.length} damping={0}>
+                <ScrollControls pages={posts.length} damping={0}>
                     <Videos />
                 </ScrollControls>
             </Canvas>

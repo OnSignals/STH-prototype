@@ -3,12 +3,14 @@
 import { Title } from '@/components/Global/Title';
 import { Visual } from '../Visual/Visual';
 import { css } from '@emotion/react';
-import { Sidebar } from './Sidebar';
+import { Sidebar } from './Sidebar/Sidebar';
 import { Main } from './Main/Main';
+import { Header } from './Header/Header';
 
 function Home({ data }) {
     return (
         <>
+            <Header />
             <Main />
             <Sidebar />
         </>

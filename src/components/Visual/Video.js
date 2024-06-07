@@ -6,34 +6,39 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { DoubleSide } from 'three';
 import { useShallow } from 'zustand/react/shallow';
 import { useControls } from 'leva';
-import { videos } from '@/data/video';
+import { posts } from '@/data/posts';
 import { CustomMaterial } from './CustomMaterial';
 import { clamp, easing, lerp } from '@superstructure.net/utils';
 
 extend({ CustomMaterial });
 
 const Video = ({ index = 0, currentIndex = 0 }) => {
-    const { scale, displacementScale } = useControls({
-        scale: {
-            value: 1,
-            min: 0.2,
-            max: 4,
-            step: 0.1,
-        },
-        displacementScale: {
-            value: -1,
-            min: -4,
-            max: 4,
-            step: 0.1,
-        },
-    });
+    console.log('currentIndex', currentIndex, posts.length);
+
+    // const { scale, displacementScale } = useControls({
+    //     scale: {
+    //         value: 1.5,
+    //         min: 0.2,
+    //         max: 4,
+    //         step: 0.1,
+    //     },
+    //     displacementScale: {
+    //         value: -1,
+    //         min: -4,
+    //         max: 4,
+    //         step: 0.1,
+    //     },
+    // });
+
+    const [scale, _] = useState(1.5);
+    const [displacementScale, __] = useState(-1);
 
     const scrollData = useScroll();
     const { pointer } = useThree();
 
-    const videoUrlColor = useMemo(() => videos[index].color, [index]);
-    const videoUrlDepth = useMemo(() => videos[index].depth, [index]);
-    const videoRatio = useMemo(() => videos[index].ratio, [index]);
+    const videoUrlColor = useMemo(() => posts[index].video.color, [index]);
+    const videoUrlDepth = useMemo(() => posts[index].video.depth, [index]);
+    const videoRatio = useMemo(() => posts[index].video.ratio, [index]);
 
     const positionRef = useRef();
     const rotationRef = useRef();
@@ -56,7 +61,7 @@ const Video = ({ index = 0, currentIndex = 0 }) => {
             meshRef.current.material.uniforms.displacementScale.value = displacementScale;
         }
 
-        const distance = scrollData.offset * (videos.length - 1) - index;
+        const distance = scrollData.offset * (posts.length - 1) - index;
 
         if (index === 1 && Math.abs(distance <= 1)) {
         }

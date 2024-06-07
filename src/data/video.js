@@ -26,6 +26,8 @@ const videos = [
         depth: 'https://player.vimeo.com/progressive_redirect/playback/950845235/rendition/720p/file.mp4?loc=external&log_user=0&signature=85fa2a273403b61c0d28c95ca10974cc4543bddbf37ae0fca199e365f0a2b520',
         ratio: 720 / 1280,
     },
+
+    /*
     {
         color: 'https://player.vimeo.com/progressive_redirect/playback/950846633/rendition/720p/file.mp4?loc=external&log_user=0&signature=491c37e2ee15c1c3d8c948b238abeb81a377c31a20f789fd0f4a4b3ea649777b',
         depth: 'https://player.vimeo.com/progressive_redirect/playback/950845267/rendition/720p/file.mp4?loc=external&log_user=0&signature=ca302c3a6fbf1103bf890854f4b40760603c6f1e09565585f29b0564f564791b',
@@ -95,7 +97,9 @@ const videos = [
     depth:
       "https://player.vimeo.com/progressive_redirect/playback/950845711/rendition/720p/file.mp4?loc=external&log_user=0&signature=9c302c7eda34fca5d3671ca36fee80dd269fc4d05e859c1c1df88771ac988b38",
     ratio: 1280 / 720,
-  },*/,
+  },*/
+
+    ,
 ];
 
 export { videos };
