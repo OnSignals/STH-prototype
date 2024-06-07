@@ -73,7 +73,7 @@ const styles = {
 
         [data-id='2'] & {
             font-size: 15vw;
-            line-height: 0.75;
+            line-height: 0.9;
             font-weight: normal;
             font-variation-settings: 'wght' 1000, 'ital' 1, 'opsz' 60;
             letter-spacing: -0em;
