@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
+    exportTrailingSlash: true,
 
     experimental: {
         swrDelta: 60,
