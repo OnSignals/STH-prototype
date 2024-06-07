@@ -19,6 +19,12 @@ const VARIANTS = {
         animate: {},
         exit: {},
     },
+
+    shape: {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+    },
 };
 
 function Posts() {
@@ -49,9 +55,17 @@ function Posts() {
                                     <Tickets hasTickets={post?.hasTickets || true} />
                                 </motion.article>
 
-                                <div css={styles.shape} data-id={post.id}>
+                                <motion.div
+                                    initial={VARIANTS.shape.initial}
+                                    animate={VARIANTS.shape.animate}
+                                    exit={VARIANTS.shape.exit}
+                                    transition={{ type: 'tween', duration: 1 }}
+                                    css={styles.shape}
+                                    key={`Shape-${i}`}
+                                    data-id={post.id}
+                                >
                                     <Shape type={i === 0 ? 'c' : i === 1 ? 'a' : 'd'} />
-                                </div>
+                                </motion.div>
                             </>
                         )
                 )}
